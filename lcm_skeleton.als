@@ -243,8 +243,8 @@ pred first_initialization_access[e1 : Event]
 pred intervening_access[e1 : Event, e2 : Event]{
   e1->e2 in com_arch and 
  {some e3:Event| disj[e3,e1] and disj[e3,e2] 
-  and e1->e3 not in  ^com_arch and e3->e1 in ecomx 
-  and e3 in eXSWriters}
+  and e1->e3 not in  ^com_arch and e3->e2 in ecomx 
+  and e3 in eXSWriters} // TODO: Add constraints that e3, e1 and e2 - all have access to the same xstate location.
 }
 
 // Whenever there is no corresponding comx edge for its respective com counterpart, the architectural communication is inconsistent with the extra-architecural communication
